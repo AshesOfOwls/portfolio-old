@@ -1,8 +1,3 @@
-document.addEventListener 'touchmove', (e) ->
-  e.preventDefault();
-  var touch = e.touches[0];
-, false
-
 $ ->
   color = jQuery.Color('#999')
 
@@ -14,9 +9,9 @@ $ ->
     pageHeight = $(document).height()
 
   hue_offset = Math.random() * 200
-  $("body").on "mousemove touchmove", (e) ->
-    x = e.pageX || pageWidth / 2
-    y = e.pageY || pageHeight / 6
+  $("body").on "mousemove drag", (e) ->
+    x = e.pageX || e.x || pageWidth / 2
+    y = e.pageY || e.y || pageHeight / 6
     percent_x = x / pageWidth
     percent_y = y / pageHeight
     grid_x = .5 - percent_x
