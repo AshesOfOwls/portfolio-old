@@ -9,13 +9,14 @@ $ ->
     pageHeight = $(document).height()
 
   hue_offset = Math.random() * 200
-  $("body").on "mousemove drag", (e) ->
-    if e.type is 'drag'
-      x = e.x 
-      y = e.y
+  $("body").on "mousemove touchmove", (e) ->
+
+    if e.type is "touchmove"
+      x = e.originalEvent.touches[0].pageX
+      y = e.originalEvent.touches[0].pageY
     else
       x = e.pageX
-      Y = e.pageY
+      y = e.pageY
 
     x ||= pageWidth / 2
     y ||= pageHeight / 2
