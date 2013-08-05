@@ -1,8 +1,7 @@
-document.addEventListener('touchmove', function(e) {
+document.addEventListener 'touchmove', (e) ->
   e.preventDefault();
   var touch = e.touches[0];
-  alert(touch.pageX + " - " + touch.pageY);
-}, false);
+, false
 
 $ ->
   color = jQuery.Color('#999')
