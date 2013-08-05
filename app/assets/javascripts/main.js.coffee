@@ -9,9 +9,17 @@ $ ->
     pageHeight = $(document).height()
 
   hue_offset = Math.random() * 200
-  $("body").on "mousemove touchmove", (e) ->
-    x = e.pageX || e.x || pageWidth / 2
-    y = e.pageY || e.y || pageHeight / 6
+  $("body").on "drag", (e) ->
+    if e.type is 'drag'
+      x = e.x 
+      y = e.y
+    else
+      x = e.pageX
+      Y = e.pageY
+
+    x ||= pageWidth / 2
+    y ||= pageHeight / 2
+
     percent_x = x / pageWidth
     percent_y = y / pageHeight
     grid_x = .5 - percent_x
