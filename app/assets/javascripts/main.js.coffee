@@ -9,7 +9,7 @@ $ ->
     pageHeight = $(document).height()
 
   hue_offset = Math.random() * 200
-  $("body").on "drag", (e) ->
+  $("body").on "mousemove drag", (e) ->
     if e.type is 'drag'
       x = e.x 
       y = e.y
